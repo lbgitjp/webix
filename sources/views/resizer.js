@@ -270,5 +270,7 @@ const api = {
 	}
 };
 
-const view = protoUI(api, MouseEvents, Destruction, base.view);
+//const view = protoUI(api, MouseEvents, Destruction, base.view);
+//上面有两个析构函数导致内存泄漏
+const view = protoUI(api, MouseEvents, base.view);
 export default {api, view};

@@ -32,6 +32,8 @@ const Destruction = {
 		this.destructor=function(){};
 		//remove self reference from global destructions collection
 		this._destructor_handler.obj = null;
+		//???resizer有两个析构函数导致内存泄漏
+		let k = state.destructors;
 
 		//destroy child and related cells
 		if (this.getChildViews){

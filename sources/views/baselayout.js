@@ -213,8 +213,11 @@ const api = {
 			if ((sizes[1]>=100000 || sizes[3] >= 100000) && this._viewobj.parentNode){
 				//in hidden container adjust doesn't work, so fallback to last known size
 				//also, ensure that min-size is not violated
-				nx = x = Math.max(sizes[0], (this._settings.width || this._viewobj.parentNode.offsetWidth || x || 0));
-				ny = y = Math.max(sizes[2], (this._settings.height || this._viewobj.parentNode.offsetHeight || y || 0));
+				//nx = x = Math.max(sizes[0], (this._settings.width || this._viewobj.parentNode.offsetWidth || x || 0));
+				//ny = y = Math.max(sizes[2], (this._settings.height || this._viewobj.parentNode.offsetHeight || y || 0));
+				//???上面的高度不对
+				nx = x = Math.max(sizes[0], this._settings.width || this._viewobj.parentNode.clientWidth || x || 0);
+				ny = y = Math.max(sizes[2], this._settings.height || this._viewobj.parentNode.clientHeight || y || 0);
 			}
 			
 			if (!parent){
