@@ -1,5 +1,26 @@
 Check the full list of changes at https://docs.webix.com/desktop__whats_new.html
 
+Version 11.2 (September 2025)
+=============================
+
+### Major features
+
+- Datatable: new column resize mode, suitable for touch and hybrid devices
+- (breaking change) Google Maps markers updated to AdvancedMarker and now configurable
+- Spreadsheet:
+	- Dynamic array methods
+	- Excel file import: ability to completely ignore styles (improves performance)
+	- API: ability to get the type of a cell (getCellType method)
+	- UI: ability to define cell format for the entire row/column
+	- UI: ability to expand a sequence of months or weekdays via Fill Handle
+	- On adding a column/row the newly added cells inherit the existing column/row format
+	- (breaking change) Refactored and unified options for Toolbar and Menubar
+	- (breaking change) API: getFormat now returns both name and settings
+- Gantt
+	- API (state): ability to set a target date for auto-scroll
+
+[Full list of changes and fixes](https://docs.webix.com/desktop__whats_new_11_2.html)
+
 Version 11.1 (April 2025)
 =============================
 
@@ -15,26 +36,6 @@ Version 11.1 (April 2025)
 	- API methods for number formatting: `addFormat()`, `getFormat()`, `setFormat()`, `removeFormat()`
 - Diagram:
 	- new hotkeys: zoom on `Ctrl`+`+`, `Ctrl`+`-`, `Ctrl`+`0`
-
-### Updates
-
-- hotkeys now can support QWERTY (default), QWERTZ and AZERTY layouts (e.g. `Ctrl`+`Ö` will be recognized as valid hotkey)
-- File Manager and Document Manager: Location is added into the displayed item's details
-- Scheduler: the Units view is now scrollable, the configurable `minWidth` is set for unit columns
-- Spreadsheet: (UX for formatted dates) if a cell displays only time, the date editor will open as a timepicker
-- User Manager: `cursor:pointer` is displayed over clickable checkboxes in matrices ("user/role", "rule/role", "rule/user")
-- Gantt: tasks outside the specified scale now will not be displayed on Gantt's chart area
-- ToDo: better indication of the applied search
-
-### Fixes
-
-- hotkeys set with UIManager didn't work in non-latin keyboard layouts
-- Texthighlight: with `labelPosition:"top"` highlighted text was shifting from the input
-- Multicombo: wrong sizing with `labelPosition: "left"`
-- Button: `maxWidth` was ignored durging resize
-- Calendar: `minDate`/`maxDate` limits were ignored during time selection (in an empty widget)
-- Window: "Close" icon was misaligned
-- Tree with `threeState`: disabled items could be affected by checking/unchecking a parent node
 
 [Full list of changes and fixes](https://docs.webix.com/desktop__whats_new_11_1.html)
 
@@ -59,28 +60,7 @@ Version 11.0 (November 2024)
 - Report Manager: 
 	- ability to show reports as standalone widgets 
 
-### Updates
-
-- Supported PDF.js version updated to 4.7.76
-
-### Fixes
-
-- regression in Multicombo: suggest stays hidden while a user is typing
-- regression in Multicombo: bottomLabel leads to wrong sizing
-- improved data export to CSV (filterHTML)
-- typescript definitions are improved
-- Datatable: configuration of filters may ignore optionWidth in inputConfig
-- Datatable: multisort state is shared across instances
-- Datatable: concurrent data loads throw an error
-- Treetable: client-side filters cannot be reset after additional parse
-- Datatable in Firefox: a tooltip is still visible after the cursor has left the table 
-- Datatable in Firefox on Windows, any browser on macOS: inactive scrollbars
-- Datatable: unnecessary mutations in the column's config
-- Dynamic loading in Datatable: keyboard navigation does not load data upwards
-- Dynamic loading in Datatable: dragging scrollbar triggers an additional request with incorrect parameters
-
 [Full list of changes and fixes](https://docs.webix.com/desktop__whats_new_11_0.html)
-
 
 Version 10.3 (August 2024)
 =============================

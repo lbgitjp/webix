@@ -1,4 +1,4 @@
-Webix UI v.11.1.0
+Webix UI v.11.2.0
 ================
 
 [![npm version](https://badge.fury.io/js/webix.svg)](https://badge.fury.io/js/webix)
@@ -20,7 +20,7 @@ Check https://webix.com/demos
 ### License terms
 
 Webix UI library is licensed under "GPL v3" licence
-http://www.gnu.org/licenses/old-licenses/gpl-3.0.html
+https://www.gnu.org/licenses/old-licenses/gpl-3.0.html
 
 Starting from Webix 2.4, it possible to use a FLOSS Exception to the GPL License. This allows to use Webix in your applications distributed under MIT, BSD and other open source licenses. 
 
@@ -32,7 +32,7 @@ Starting from Webix 2.4, it possible to use a FLOSS Exception to the GPL License
 - You CAN'T remove this license or webix attribution from source files
 - You CAN modify provided code in any way which doesn't conflict with above statement
 - You CAN use this lib for any private projects which you do not plan to share or sell
-- You CAN use this lib for public projects, BUT in such case you MUST [share the full client source code of your project](http://forum.webix.com/discussion/4023/does-an-open-source-app-that-uses-webix-have-to-become-gpl-licensed) if asked
+- You CAN use this lib for public projects, BUT in such case you MUST [share the full client source code of your project](https://forum.webix.com/t/does-an-open-source-app-that-uses-webix-have-to-become-gpl-licensed/8995) if asked
 - If you do not want to share sources then you need to obtain a commercial license
 
 
