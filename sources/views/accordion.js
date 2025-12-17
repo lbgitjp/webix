@@ -66,10 +66,19 @@ const api = {
 	},
 	_canCollapse:function(view){
 		if (this._settings.multi === true || this._skin_render_collapse) return true;
-		//can collapse only if you have other item to open
-		for (var i=0; i < this._cells.length; i++)
-			if (view != this._cells[i] && !this._cells[i]._settings.collapsed && this._cells[i].isVisible() && !this._cells[i].$nospace)
+		// can collapse only if you have other item to open
+		for (let i = 0; i < this._cells.length; i++) {
+			const cell = this._cells[i];
+			if (
+				view !== cell &&
+				cell._collapsible &&
+				!cell._settings.collapsed &&
+				!cell._settings.hidden &&
+				!cell.$nospace
+			)
 				return true;
+		}
+
 		return false;
 	},
 	$skin:function(){

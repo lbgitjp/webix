@@ -28,6 +28,7 @@ const api = {
 		this._viewobj.className +=" webix_accordionitem";
 		this._head_cell = this._body_cell = null;
 		this._cells = true;
+		this._collapsible = true;
 
 		this._bodyobj.setAttribute("role", "tabpanel");
 		this._headobj.setAttribute("role", "tab");
@@ -130,41 +131,46 @@ const api = {
 	},
 	collapsed_setter:function(value){
 		if (this._settings.header === false) return;
-		//use last layout element if parent is not known yet
-		var parent = this.getParentView();
-		if(parent){
-			if(!value)
-				this._expand();
-			else{
-				if ( parent._canCollapse(this))
-					this._collapse();
-				else{
-					var success = 0;
-					if(parent._cells.length > 1)
-						for (var i=0; i < parent._cells.length; i++){
-							var sibl = parent._cells[i];
-							if (this != sibl && sibl.isVisible() && sibl.expand){
-								sibl.expand();
-								this._collapse();
-								success = 1;
-								break;
-							}
+		// use last layout element if parent is not known yet
+		const parent = this.getParentView();
+		if (!parent) return value;
+
+		if (!value) this._expand();
+		else {
+			if (parent._canCollapse(this)) this._collapse();
+			else {
+				let success = 0;
+				if (parent._cells.length > 1) {
+					for (let i = 0; i < parent._cells.length; i++) {
+						const sibl = parent._cells[i];
+						if (
+							this !== sibl &&
+							sibl._collapsible &&
+							sibl._settings.collapsed &&
+							!sibl._settings.hidden &&
+							sibl.expand
+						) {
+							sibl.expand();
+							this._collapse();
+							success = 1;
+							break;
 						}
-					if (!success) return;
+					}
 				}
+
+				if (!success) return;
 			}
-
-			this._settings.collapsed = value;
-			if (!value) parent._afterOpen(this);
-
-			this.refresh();
-			if (!state._ui_creation)
-				this.resize();
-
-			parent.callEvent("onAfter"+(value?"Collapse":"Expand"), [this._settings.id]);
-
-			this._settings.$noresize = value;
 		}
+
+		this._settings.collapsed = value;
+		if (!value) parent._afterOpen(this);
+
+		this.refresh();
+		if (!state._ui_creation) this.resize();
+
+		parent.callEvent("onAfter" + (value ? "Collapse" : "Expand"), [this._settings.id]);
+		this._settings.$noresize = value;
+		
 		return value;
 	},
 	collapse:function(){

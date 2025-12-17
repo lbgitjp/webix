@@ -1,5 +1,99 @@
 Check the full list of changes at https://docs.webix.com/desktop__whats_new.html
 
+Version 11.3 (December 2025)
+=============================
+
+### Major features
+
+- Rich Text Editor
+	- Markdown support:
+		- copy and paste
+		- import and export
+		- getting and setting as a value
+	- Context menu
+	- Ability to reset values in text and background color pickers
+	- Ability to set the default value `datatype`
+
+### Fixes
+
+- Datatable: improved dynamic rendering on touch and hybrid (2-in-1) devices
+- Regression: `refreshColumns` should not reapply filtering
+- Regression: frequent manual (intentional) `loadNext` calls were blocked
+- Custom Scroll on Firefox, Windows: scroll step was too large
+- Custom Scroll on Firefox, Windows: custom scroll didn't initialize properly
+- Custom Scroll on Firefox, Windows: footer could overlap the horizontal scrollbar
+- Custom Scroll on Firefox, Windows: scrollbar areas overlapped the data, preventing selection in the corners
+- Horizontal list: dynamic rendering didn't work
+- Menu: submenu could suddenly hide while covering the parent item
+- Enhanced IME support for filtering in Datatable and Combo widgets
+- Dashboard on Safari, macOS: resizing an inner panel triggered unwanted content selection
+- Scrollview with `scroll: "auto"` miscalculated inner content sizes
+- Rich Text Editor
+	- Some popups weren't hidden and removed on widget destruction
+	- Alternative descriptions for images weren't updated correctly in the editor
+	- With multiple instances of the Editor widget, clicking an image threw an error
+	- Valid HTML strings couldn't be set as a value without adding an extra space or a new line
+	- Indefinite wrapping of subscript and superscript elements
+	- Internal clipboard wasn't shared between separate Editor instances
+	- Cursor was incorrectly positioned when the only content in a paragraph was an image
+	- Empty inline blocks couldn't be removed at specific positions (the first or last line)
+- Spreadsheet
+	- Regression: toolbar didn't reflect some styles applied to the selected range
+	- Refactoring of menu options (non-unique submenu IDs, localization issues)
+	- Formula values in locked cells weren't updated
+	- Improved recalculation of dependent formulas after paste, including locked cells
+	- Toolchain and dependencies were updated
+- Gantt
+	- Filtering: tasks that were filtered out didn't update with the parent project
+	- Start and end dates of split tasks weren't changed when split parts were moved to other dates
+
+[Full list of changes and fixes](https://docs.webix.com/desktop__whats_new_11_3.html)
+
+Version 11.2.3 (November 2025)
+=============================
+
+### Fixes
+
+- Label: `autowidth` didn’t handle custom styles.
+- Scheduler
+   - In forced `compact` mode, the rule editor for recurring events filled the entire screen instead of staying within the Scheduler’s container.
+- Spreadsheet
+   - When no cells were selected, setting a row or column format through the UI resulted in an error.
+- Richtext
+   - Pasting images using `Ctrl+V` inserted them as Base64 instead of uploading them.
+   - Pasting images via the menubar inserted them as Base64 instead of uploading them.
+
+Version 11.2.2 (October 2025)
+=============================
+
+### Fixes
+
+- regression in Datatable: dynamic rendering on touch devices failed after scroll
+- Richtext:
+   - The image editor popup had the wrong position if the target image was smaller than the popup
+   - The error that occurred when "Insert link" was pressed without setting cursor to the Editor text area
+
+Version 11.2.1 (October 2025)
+=============================
+
+### Fixes
+
+- regression in Datatable: modifying columns directly and calling `refreshColumns` without an explicit array with columns caused TypeError
+- Datatable: `refreshColumns` and `scrollTo` methods caused an error when called together on a hidden datatable
+- Accordion: collapse/expand methods didn't work when layout was hidden
+- Property Sheet: double click on a checkbox inverted the value
+- Willow and Dark skins: incorrect font-weight for resizer icons
+- Spreadsheet:
+	- Context menu didn't hide when other block areas were selected
+	- Rows/columns were not selected when context menu was opened for them
+	- Some characters in sheet names weren't escaped
+- Scheduler:
+	- Timeline mode: hardcoded section row number was removed
+	- Editor form in Compact mode: custom recurring pattern was set incorrectly
+- Richtext
+	- Initial values in Toolbar are not synced with the cursor position
+	- Fullscreen mode weren't set correctly on init
+
 Version 11.2 (September 2025)
 =============================
 
